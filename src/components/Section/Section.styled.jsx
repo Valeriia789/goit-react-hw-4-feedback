@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const StyledSection = styled.section`
+  min-width: 250px;
   margin: 20px;
   padding: 10px;
   border-top-left-radius: 20%;
@@ -19,5 +20,5 @@ export const SectionTitle = styled.h2`
 `;
 
 export const ChildrenContainer = styled.div`
-  padding: 0px 40px;
+  padding: 0px 20px;
 `;

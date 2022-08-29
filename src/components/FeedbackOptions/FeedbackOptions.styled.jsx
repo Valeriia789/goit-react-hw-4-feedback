@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const Button = styled.button`
   width: 150px;
   height: 50px;
-  margin: 5px;
+  margin: 15px;
   cursor: pointer;
   font-size: 20px;
   font-family: 'Staatliches', cursive;

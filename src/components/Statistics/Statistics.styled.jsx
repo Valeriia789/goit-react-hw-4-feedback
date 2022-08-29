@@ -1,7 +1,9 @@
 import styled from '@emotion/styled';
 
 export const StatisticInfo = styled.li`
-  font-size: 28px;
+  display: flex;
+  margin-bottom: 5px;
+  font-size: 24px;
   font-weight: 400;
   font-style: normal;
   text-align: left;
