@@ -1,24 +1,38 @@
 import PropTypes from 'prop-types';
 import { StatisticInfo } from './Statistics.styled';
 
-const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
+const Statistics = ({ feedbacks, good }) => {
+  const countTotal = () => {
+    return Object.values(feedbacks).reduce((previousValue, newFeedback) => {
+      return previousValue + newFeedback;
+    }, 0);
+  };
+
+  const countPositivePercentage = () => {
+    const total = (good * 100) / countTotal();
+    return Math.round(total) >= 0 ? Math.round(total) : 0;
+  };
+
   return (
-    <>
-      <StatisticInfo>Good: {good} </StatisticInfo>
-      <StatisticInfo>Neutral: {neutral} </StatisticInfo>
-      <StatisticInfo>Bad: {bad} </StatisticInfo>
-      <StatisticInfo>Total: {total} </StatisticInfo>
-      <StatisticInfo>Positive feedback: {positivePercentage} %</StatisticInfo>
-    </>
+    <ul>
+      {Object.keys(feedbacks).map((key, i) => (
+        <StatisticInfo key={i}>
+          <p>{key} :</p>
+          <p>{feedbacks[key]}</p>
+        </StatisticInfo>
+      ))}
+
+      <StatisticInfo>Total: {countTotal()} </StatisticInfo>
+      <StatisticInfo>
+        Positive feedback: {countPositivePercentage()} %
+      </StatisticInfo>
+    </ul>
   );
 };
 
 Statistics.propTypes = {
+  feedbacks: PropTypes.object.isRequired,
   good: PropTypes.number.isRequired,
-  neutral: PropTypes.number.isRequired,
-  bad: PropTypes.number.isRequired,
-  total: PropTypes.number.isRequired,
-  positivePercentage: PropTypes.number.isRequired,
 };
 
 export default Statistics;

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const StatisticInfo = styled.p`
+export const StatisticInfo = styled.li`
   font-size: 28px;
   font-weight: 400;
   font-style: normal;
